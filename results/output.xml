@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.7 on win32)" generated="2026-09-24T09:29:59.813655" rpa="false" schemaversion="5">
+<suite id="s1" name="7-Security" source="D:\Study\P3\p3t1\ITMI1303_tester\Project Robot EDIT2\tests\7-security.robot">
+<test id="s1-t1" name="TC_SEC_001 เรียกใช้ Product API โดยไม่ล็อกอิน" line="7">
+<kw name="Open Browser To Login Page" owner="keyword">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-24T09:30:00.293620" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${BASE_URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-24T09:30:00.292760" elapsed="0.980765"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-24T09:30:01.273811" elapsed="0.031278"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-09-24T09:30:01.305842" elapsed="0.003343"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-09-24T09:30:01.309503" elapsed="0.016772"/>
+</kw>
+<status status="PASS" start="2026-09-24T09:30:00.290574" elapsed="1.035935"/>
+</kw>
+<kw name="Execute Async Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-24T09:30:01.327821" level="INFO">Executing Asynchronous JavaScript:
+const callback = arguments[arguments.length - 1];fetch('/api/products', {credentials: 'include'}).then(r =&gt; r.json().then(body =&gt; callback({status: r.status, body: body}))).catch(e =&gt; callback({status: 0, body: e.toString()}));
+Without any arguments.</msg>
+<msg time="2026-09-24T09:30:01.342650" level="INFO">${result} = {'body': {'message': 'กรุณาเข้าสู่ระบบก่อน'}, 'status': 401}</msg>
+<var>${result}</var>
+<arg>const callback = arguments[arguments.length - 1];</arg>
+<arg>fetch('/api/products', {credentials: 'include'})</arg>
+<arg>.then(r =&gt; r.json().then(body =&gt; callback({status: r.status, body: body})))</arg>
+<arg>.catch(e =&gt; callback({status: 0, body: e.toString()}));</arg>
+<doc>Executes asynchronous JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-24T09:30:01.327349" elapsed="0.015355"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-09-24T09:30:01.343815" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result}[status]</arg>
+<arg>401</arg>
+<arg>msg=ต้องคืน HTTP 401</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-09-24T09:30:01.343222" elapsed="0.000727"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}[body][message]</arg>
+<arg>กรุณาเข้าสู่ระบบก่อน</arg>
+<arg>msg=ข้อความต้องตรง</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-09-24T09:30:01.344514" elapsed="0.000601"/>
+</kw>
+<doc>ส่ง Request GET /api/products โดยไม่ล็อกอิน ต้องคืน 401</doc>
+<tag>Security</tag>
+<status status="PASS" start="2026-09-24T09:30:00.286029" elapsed="1.059489"/>
+</test>
+<test id="s1-t2" name="TC_SEC_002 เรียกใช้ Withdraw API โดยไม่ล็อกอิน" line="19">
+<kw name="Open Browser To Login Page" owner="keyword">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-24T09:30:01.348774" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${BASE_URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-24T09:30:01.348438" elapsed="0.836544"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-24T09:30:02.185303" elapsed="0.035712"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-09-24T09:30:02.221242" elapsed="0.002737"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-09-24T09:30:02.224218" elapsed="0.017150"/>
+</kw>
+<status status="PASS" start="2026-09-24T09:30:01.348012" elapsed="0.893799"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-09-24T09:30:02.243106" level="INFO">Opening url 'http://localhost:3000/api/stock/withdraw'</msg>
+<arg>${BASE_URL}/api/stock/withdraw</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-09-24T09:30:02.242582" elapsed="0.058463"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-09-24T09:30:03.302656" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-09-24T09:30:02.301567" elapsed="1.001216"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-09-24T09:30:03.318681" level="INFO">${body} = Cannot GET /api/stock/withdraw</msg>
+<var>${body}</var>
+<arg>css=body</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-24T09:30:03.303123" elapsed="0.015603"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-09-24T09:30:03.319904" level="FAIL">ต้องคืน 401 กรุณาเข้าสู่ระบบก่อน (GET ตรงๆ จะไม่ได้ 401 → FAIL ตาม spec): 'Cannot GET /api/stock/withdraw' does not contain 'กรุณาเข้าสู่ระบบก่อน'</msg>
+<arg>${body}</arg>
+<arg>กรุณาเข้าสู่ระบบก่อน</arg>
+<arg>msg=ต้องคืน 401 กรุณาเข้าสู่ระบบก่อน (GET ตรงๆ จะไม่ได้ 401 → FAIL ตาม spec)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-09-24T09:30:03.319052" elapsed="0.001061">ต้องคืน 401 กรุณาเข้าสู่ระบบก่อน (GET ตรงๆ จะไม่ได้ 401 → FAIL ตาม spec): 'Cannot GET /api/stock/withdraw' does not contain 'กรุณาเข้าสู่ระบบก่อน'</status>
+</kw>
+<doc>Spec: POST /api/stock/withdraw โดยไม่ล็อกอินต้อง 401 (spec ระบุ Failed: ยิงผ่าน URL เบราว์เซอร์ตรงๆ ได้แค่ GET)</doc>
+<tag>Security</tag>
+<status status="FAIL" start="2026-09-24T09:30:01.346133" elapsed="1.974405">ต้องคืน 401 กรุณาเข้าสู่ระบบก่อน (GET ตรงๆ จะไม่ได้ 401 → FAIL ตาม spec): 'Cannot GET /api/stock/withdraw' does not contain 'กรุณาเข้าสู่ระบบก่อน'</status>
+</test>
+<kw name="Close Browser Session" owner="keyword" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-24T09:30:03.321817" elapsed="4.530314"/>
+</kw>
+<status status="PASS" start="2026-09-24T09:30:03.321566" elapsed="4.530715"/>
+</kw>
+<doc>Test Cases สำหรับความปลอดภัย (Security)</doc>
+<status status="FAIL" start="2026-09-24T09:29:59.815331" elapsed="8.037019"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="1" skip="0">Security</stat>
+</tag>
+<suite>
+<stat name="7-Security" id="s1" pass="1" fail="1" skip="0">7-Security</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

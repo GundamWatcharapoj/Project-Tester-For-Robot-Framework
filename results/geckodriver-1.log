@@ -1,0 +1,21 @@
+1789668303188	geckodriver	INFO	Listening on 127.0.0.1:51477
+1789668306366	mozrunner::runner	INFO	Running command: "C:\\Users\\vacha\\.cache\\selenium\\firefox\\win64\\156.0\\firefox.exe" "--marionette" "--remote-debugging- ... 8" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vacha\\AppData\\Local\\Temp\\rust_mozprofile6ecRoC"
+Dynamically enable window occlusion 0
+1789668308547	Marionette	INFO	Marionette enabled
+1789668308661	Marionette	INFO	Listening on port 57611
+WebDriver BiDi listening on ws://127.0.0.1:51478
+Read port: 57611
+1789668308814	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR shell_windows::limited_access_features] Error generating feature token: NS_ERROR_FAILURE
+[ERROR shell_windows::taskbar::shortcut] Error matching shortcut: Error { code: HRESULT(0x80004005), message: "Unspecified error" }
+[ERROR shell_windows::taskbar::shortcut] Error matching shortcut: Error { code: HRESULT(0x80004005), message: "Unspecified error" }
+[ERROR shell_windows::taskbar::shortcut] Error matching shortcut: Error { code: HRESULT(0x80004005), message: "Unspecified error" }
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1789668312417	Marionette	INFO	Stopped listening on port 57611
+JavaScript error: resource://messaging-system/lib/SpecialMessageActions.sys.mjs, line 860: TypeError: can't access property "documentGlobal", browser is undefined
+console.error: "Experiment private-window-visual-refresh-design-change-only has unknown featureId: feltPrivacy"
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 50: TypeError: can't access property "QueryInterface", aWindow.docShell is null
+Dynamically enable window occlusion 1
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 627: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
